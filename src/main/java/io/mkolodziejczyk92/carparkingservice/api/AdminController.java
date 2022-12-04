@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
 import java.util.UUID;
 
 @RestController
@@ -17,9 +18,8 @@ public class AdminController {
     @PostMapping(value = "/parkings")
     public ResponseEntity<CarParksIdDto> addParking(){
         ParkingId parkingId = new ParkingId((UUID.randomUUID().toString()));
-
-        CarParksIdDto carParksIdDto = new CarParksIdDto(parkingId.rawValue());
-        return ResponseEntity.ok(carParksIdDto);
+        return ResponseEntity.created(URI.create("/parkings/"
+                + parkingId.rawValue())).body(new CarParksIdDto(parkingId.rawValue()));
     }
 
 
