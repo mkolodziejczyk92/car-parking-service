@@ -5,11 +5,11 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Parking {
+public class CarPark {
 
-    ParkingCoordinates parkingCoordinates;
-    ParkingLocation parkingLocation;
-    ParkingId parkingId;
+    CarParkCoordinates carParkCoordinates;
+    CarParkLocation carParkLocation;
+    CarParkId carParkId;
     String parkingName;
 
 }

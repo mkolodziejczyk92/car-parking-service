@@ -7,18 +7,18 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @Builder
-public class CarParkingRequest {
+public class CarParkRequest {
 
     @NotBlank
-    String parkingLatitude;
+    String carParkLatitude;
     @NotBlank
-    String parkingLongitude;
+    String carParkLongitude;
     @NotBlank
-    String parkingStreet;
+    String carParkStreet;
     @NotBlank
-    String parkingNumber;
+    String carParkNumber;
     @NotBlank
-    String parkingName;
+    String carParkName;
 
 
 }

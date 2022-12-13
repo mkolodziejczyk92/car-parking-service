@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ParkingRepository extends MongoRepository<Parking, ParkingId> {
+public interface CarParkRepository extends MongoRepository<CarPark, CarParkId> {
 
-    Optional<Parking> findFirstByParkingIdEquals(ParkingId parkingId);
+    Optional<CarPark> findFirstByCarParkIdEquals(CarParkId carParkId);
 
-    void deleteByParkingIdEquals(ParkingId parkingId);
+    void deleteByCarParkIdEquals(CarParkId carParkId);
 
 }

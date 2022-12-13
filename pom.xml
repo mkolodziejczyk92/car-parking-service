@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.mkolodziejczyk92</groupId>
-    <artifactId>car-parking-service</artifactId>
+    <artifactId>car-carPark-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>car-parking-service</name>
-    <description>car-parking-service</description>
+    <name>car-carPark-service</name>
+    <description>car-carPark-service</description>
     <properties>
         <java.version>17</java.version>
     </properties>

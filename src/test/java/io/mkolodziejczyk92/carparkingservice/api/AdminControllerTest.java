@@ -1,6 +1,6 @@
 package io.mkolodziejczyk92.carparkingservice.api;
 
-import io.mkolodziejczyk92.carparkingservice.api.dto.CarParksIdDto;
+import io.mkolodziejczyk92.carparkingservice.api.dto.CarParkIdDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AdminControllerTest {
@@ -25,8 +24,8 @@ class AdminControllerTest {
 
 
         //when
-        ResponseEntity<CarParksIdDto> carParksIdDtoResponseEntity =
-                restTemplate.postForEntity(postCarParkUrl, null, CarParksIdDto.class);
+        ResponseEntity<CarParkIdDto> carParksIdDtoResponseEntity =
+                restTemplate.postForEntity(postCarParkUrl, null, CarParkIdDto.class);
 
         //then
         assertThat(carParksIdDtoResponseEntity.getStatusCode().equals(HttpStatus.CREATED)).isTrue();
