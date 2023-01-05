@@ -3,7 +3,7 @@ package io.mkolodziejczyk92.carparkingservice.api;
 import io.mkolodziejczyk92.carparkingservice.api.dto.CarParkIdDto;
 import io.mkolodziejczyk92.carparkingservice.domain.CarPark;
 import io.mkolodziejczyk92.carparkingservice.domain.CarParkId;
-import io.mkolodziejczyk92.carparkingservice.domain.CarParkService;
+import io.mkolodziejczyk92.carparkingservice.domain.services.CarParkService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,26 +21,25 @@ public class AdminController {
     }
 
     @PostMapping(value = "/car-park")
-    public ResponseEntity<CarParkIdDto> addCarPark(){
+    public ResponseEntity<CarParkIdDto> addCarPark(@RequestBody String carParkParameters) {
         CarParkId carParkId = new CarParkId((UUID.randomUUID().toString()));
+        carParkService.createCarPark(carParkParameters);
         return ResponseEntity.created(URI.create("/car-park/"
                 + carParkId.rawValue())).body(new CarParkIdDto(carParkId.rawValue()));
     }
 
     @PatchMapping(value = "/car-park/{carParkId}")
     public ResponseEntity<CarPark> updateParkingValues(@PathVariable String carParkId,
-                                                       @RequestParam String carParkName){
+                                                       @RequestParam String carParkName) {
         CarParkId carParkIdIn = new CarParkId(carParkId);
         return ResponseEntity.ok().body(carParkService.updateCarPark(carParkIdIn, carParkName));
     }
 
     @DeleteMapping(value = "/car-park/{carParkId}")
-    public ResponseEntity<CarPark> deleteCarParkValue(@PathVariable String carParkId){
+    public ResponseEntity<CarPark> deleteCarParkValue(@PathVariable String carParkId) {
         CarParkId carParkIdIn = new CarParkId(carParkId);
         carParkService.deleteCarPark(carParkIdIn);
         return ResponseEntity.noContent().build();
     }
-
-
 
 }
