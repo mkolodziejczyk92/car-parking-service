@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class Mapper {
 
-   private final ParkingPlaceService parkingPlaceService = new ParkingPlaceService(); //?????????
+   private final ParkingPlaceService parkingPlaceService = new ParkingPlaceService();
 
     public CarPark carParkMapper(String carParkParameters) {
         JSONObject jsonObjectFromInput = new JSONObject(carParkParameters);
@@ -23,7 +23,7 @@ public class Mapper {
                         jsonObjectFromInput.getString("plotNumber"));
         Integer parkingSize = jsonObjectFromInput.getInt("parkingSize");
 
-        List<ParkingPlace> parkingPlacesFromInput = parkingPlaceService.getParkingPlacesByParkingSize(parkingSize); //??????????
+        List<ParkingPlace> parkingPlacesFromInput = parkingPlaceService.getParkingPlacesByParkingSize(parkingSize);
 
         return CarPark.builder()
                 .carParkCoordinates(carParkCoordinates)
