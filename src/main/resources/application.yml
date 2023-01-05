@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://marcin123:pass123@car-parking-service-db.xy5b5zq.mongodb.net/?retryWrites=true&w=majority
+      database: "carParking"
