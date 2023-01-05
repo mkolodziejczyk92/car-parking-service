@@ -1,6 +1,10 @@
-package io.mkolodziejczyk92.carparkingservice.domain;
+package io.mkolodziejczyk92.carparkingservice.domain.services;
 
+import io.mkolodziejczyk92.carparkingservice.domain.CarPark;
+import io.mkolodziejczyk92.carparkingservice.domain.CarParkId;
+import io.mkolodziejczyk92.carparkingservice.domain.Mapper;
 import io.mkolodziejczyk92.carparkingservice.domain.exceptions.CarParkNotFoundException;
+import io.mkolodziejczyk92.carparkingservice.domain.repositories.CarParkRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,16 +17,11 @@ import java.util.Optional;
 public class CarParkService {
 
     CarParkRepository carParkRepository;
+    Mapper mapper;
 
-    public CarPark createCarPark(CarParkCoordinates carParkCoordinates,
-                                 CarParkLocation carParkLocation,
-                                 String parkingName) {
-        CarPark carPark = CarPark.builder()
-                .carParkCoordinates(carParkCoordinates)
-                .carParkLocation(carParkLocation)
-                .parkingName(parkingName)
-                .carParkId(CarParkId.random())
-                .build();
+
+    public CarPark createCarPark(String carParkParameters) {
+        CarPark carPark = mapper.carParkMapper(carParkParameters);
         return carParkRepository.save(carPark);
     }
 

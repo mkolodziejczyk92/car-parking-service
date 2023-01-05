@@ -2,7 +2,7 @@ package io.mkolodziejczyk92.carparkingservice.api.dto;
 
 import io.mkolodziejczyk92.carparkingservice.domain.CarPark;
 import io.mkolodziejczyk92.carparkingservice.domain.CarParkId;
-import io.mkolodziejczyk92.carparkingservice.domain.CarParkService;
+import io.mkolodziejczyk92.carparkingservice.domain.services.CarParkService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
