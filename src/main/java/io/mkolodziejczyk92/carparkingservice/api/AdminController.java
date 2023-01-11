@@ -22,8 +22,8 @@ public class AdminController {
 
     @PostMapping(value = "/car-park")
     public ResponseEntity<CarParkIdDto> addCarPark(@RequestBody String carParkParameters) {
-        CarParkId carParkId = new CarParkId((UUID.randomUUID().toString()));
-        carParkService.createCarPark(carParkParameters);
+        CarPark carPark = carParkService.createCarPark(carParkParameters);
+        CarParkId carParkId = carPark.getCarParkId();
         return ResponseEntity.created(URI.create("/car-park/"
                 + carParkId.rawValue())).body(new CarParkIdDto(carParkId.rawValue()));
     }
