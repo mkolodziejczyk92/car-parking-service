@@ -21,11 +21,18 @@ class AdminControllerTest {
     void whenAdminAddCarParkApplicationShouldReturnCarParkId() {
         //given
         String postCarParkUrl = "/admin/car-park";
-
+        String jsonString = "{\n" +
+                "    \"latitude\": \"51.107653521058\",\n" +
+                "    \"longitude\": \"22.587168440223\",\n" +
+                "    \"street\": \"Jablonna-Majatek\",\n" +
+                "    \"plotNumber\": \"22\",\n" +
+                "    \"parkingName\": \"Parking Orlen\",\n" +
+                "    \"parkingSize\": \"7\"\n" +
+                "}";
 
         //when
         ResponseEntity<CarParkIdDto> carParksIdDtoResponseEntity =
-                restTemplate.postForEntity(postCarParkUrl, null, CarParkIdDto.class);
+                restTemplate.postForEntity(postCarParkUrl, jsonString, CarParkIdDto.class);
 
         //then
         assertThat(carParksIdDtoResponseEntity.getStatusCode().equals(HttpStatus.CREATED)).isTrue();
